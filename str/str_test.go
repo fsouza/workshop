@@ -25,3 +25,23 @@ func TestReverse(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkReverse(b *testing.B) {
+	b.StopTimer()
+	inputs := []string{
+		"abjure", "abrogate", "abstemious", "acumen", "antebellum",
+		"auspicious", "belie", "bellicose", "bowdlerize", "chicanery",
+		"chromosome", "churlish", "circumlocution", "circumnavigate",
+		"deciduous", "deleterious", "diffident", "enervate", "enfranchise",
+		"epiphany", "equinox", "euro", "evanescent", "expurgate", "facetious",
+		"fatuous", "feckless", "fiduciary", "filibuster", "gamete", "gauche",
+		"gerrymander", "hegemony", "hemoglobin", "homogeneous", "hubris",
+		"hypotenuse", "impeach", "incognito", "incontrovertible", "inculcate",
+		"infrastructure", "interpolate", "irony", "jejune", "kinetic",
+		"kowtow", "laissez faire", "lexicon", "loquacious",
+	}
+	b.StartTimer()
+	for i := 0; i < b.N; i++ {
+		Reverse(inputs[i%len(inputs)])
+	}
+}
