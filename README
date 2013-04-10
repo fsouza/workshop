@@ -1,1 +1,7 @@
 This repository contains source samples from a Go workshop at Globo.com.
+
+Some examples, more elaborate:
+
+ * article-search: https://github.com/fsouza/article-search
+ * front: https://github.com/fsouza/front
+ * lb: https://github.com/fsouza/lb
