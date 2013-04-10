@@ -6,9 +6,10 @@ package str
 
 // Reverse returns the given string in the reverse order.
 func Reverse(input string) string {
-	other := make([]byte, len(input))
-	for i := len(input) - 1; i >= 0; i-- {
-		other[i] = input[len(input)-1-i]
+	values := []rune(input)
+	l := len(input)
+	for i := 0; i < l/2; i++ {
+		values[i], values[l-1-i] = values[l-1-i], values[i]
 	}
-	return string(other)
+	return string(values)
 }
