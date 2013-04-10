@@ -8,6 +8,33 @@ import (
 	"testing"
 )
 
+func TestMyStringReader(t *testing.T) {
+	buf := make([]byte, 8)
+	s := MyString("Francisco")
+	n, err := s.Read(buf)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if n != len(buf) {
+		t.Errorf("MyString.Read() returned wrong int. Want %d. Got %d.", len(buf), n)
+	}
+	if string(buf) != string(s[:8]) {
+		t.Errorf("MyString.Read() wrote wrong content. Want %q. Got %q.", s[:8], string(buf))
+	}
+	buf = make([]byte, 8)
+	s = MyString("Chico")
+	n, err = s.Read(buf)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if n != len(s) {
+		t.Errorf("MyString.Read() returned wrong int. Want %d. Got %d.", len(s), n)
+	}
+	if string(buf[:n]) != string(s) {
+		t.Errorf("MyString.Read() wrote wrong content. Want %q. Got %q.", s, string(buf))
+	}
+}
+
 func TestReverse(t *testing.T) {
 	var tests = []struct {
 		input string

@@ -4,6 +4,19 @@
 
 package str
 
+type MyString string
+
+func (s MyString) Read(p []byte) (int, error) {
+	smaller := len(s)
+	if len(p) < smaller {
+		smaller = len(p)
+	}
+	for i := 0; i < smaller; i++ {
+		p[i] = s[i]
+	}
+	return smaller, nil
+}
+
 // Reverse returns the given string in the reverse order.
 func Reverse(input string) string {
 	values := []rune(input)
