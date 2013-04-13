@@ -13,7 +13,7 @@ type Person struct {
 	Name string
 }
 
-func transport() chan<- Person {
+func elevator() chan<- Person {
 	people := make(chan Person, 2)
 	go func() {
 		for p := range people {
@@ -30,7 +30,7 @@ func main() {
 		{Name: "John"}, {Name: "Peter"}, {Name: "Ken"},
 		{Name: "Patricia"}, {Name: "Ane"}, {Name: "Alice"},
 	}
-	ch := transport()
+	ch := elevator()
 	for _, person := range people {
 		ch <- person
 	}
