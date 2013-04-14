@@ -16,7 +16,25 @@ type Person struct {
 func (p *Person) IsBirthday() bool {
 	year, month, day := time.Now().Date()
 	birthYear, birthMonth, birthDay := p.Birth.Date()
-	return year == birthYear && month == && birthMonth && day == birthDay
+	return year == birthYear && month == birthMonth && day == birthDay
+}
+
+type People []Person
+
+func (p People) Swap(i, j int) {
+	p[i], p[j] = p[j], p[i]
+}
+
+func (p People) Less(i, j int) bool {
+	return p[i].Name < p[j].Name
+}
+
+func (p People) Len() int {
+	return len(p)
 }
 
 // TODO: embedding
+
+func main() {
+
+}
