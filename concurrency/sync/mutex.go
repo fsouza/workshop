@@ -11,7 +11,7 @@ import (
 var hits struct {
 	m map[string]int
 	sync.Mutex
-}
+}{m: make(map[string]int)}
 
 func hit(name string) {
 	hits.Lock()
