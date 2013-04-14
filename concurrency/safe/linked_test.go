@@ -11,8 +11,8 @@ import (
 
 func TestNewLinkedList(t *testing.T) {
 	linked := NewLinkedList()
-	if linked.length.val() != 0 {
-		t.Errorf("NewLinkedList(): Want 0. Got %d.", linked.length.val())
+	if linked.Len() != 0 {
+		t.Errorf("NewLinkedList(): Want 0. Got %d.", linked.Len())
 	}
 }
 
@@ -32,8 +32,8 @@ func TestLinkedListInsert(t *testing.T) {
 		}
 		n = n.Next
 	}
-	if linked.length.val() != 3 {
-		t.Errorf("LinkedList.length: Want 3. Got %d.", linked.length.val())
+	if linked.Len() != 3 {
+		t.Errorf("LinkedList.Len(): Want 3. Got %d.", linked.Len())
 	}
 }
 
@@ -51,8 +51,8 @@ func TestLinkedListRemove(t *testing.T) {
 		if v != values[i] {
 			t.Errorf("LinkedList.Remove(). Want %d. Got %d.", values[i], v)
 		}
-		if linked.length.val() != int64(i) {
-			t.Errorf("LinkedList.length: Want %d. Got %d.", i, linked.length.val())
+		if linked.Len() != i {
+			t.Errorf("LinkedList.Len(): Want %d. Got %d.", i, linked.Len())
 		}
 	}
 }

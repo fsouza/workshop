@@ -47,3 +47,7 @@ func (l *LinkedList) Remove() (int, error) {
 	l.length.decrement()
 	return h.Value, nil
 }
+
+func (l *LinkedList) Len() int {
+	return int(l.length.val())
+}
