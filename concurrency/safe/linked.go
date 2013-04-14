@@ -26,10 +26,12 @@ func NewLinkedList() *LinkedList {
 
 func (l *LinkedList) Insert(v int) {
 	node := Node{Value: v, Next: l.Head}
-	s := atomic.CompareAndSwapPointer((*unsafe.Pointer)(unsafe.Pointer(&l.Head)), unsafe.Pointer(node.Next), unsafe.Pointer(&node))
+	s := atomic.CompareAndSwapPointer((*unsafe.Pointer)(unsafe.Pointer(&l.Head)),
+		unsafe.Pointer(node.Next), unsafe.Pointer(&node))
 	for !s {
 		node.Next = l.Head
-		s = atomic.CompareAndSwapPointer((*unsafe.Pointer)(unsafe.Pointer(&l.Head)), unsafe.Pointer(node.Next), unsafe.Pointer(&node))
+		s = atomic.CompareAndSwapPointer((*unsafe.Pointer)(unsafe.Pointer(&l.Head)),
+			unsafe.Pointer(node.Next), unsafe.Pointer(&node))
 	}
 	l.length.increment()
 }
