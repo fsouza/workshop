@@ -19,6 +19,14 @@ func main() {
 	for i, value := range values {
 		fmt.Printf("values[%d]: %d.\n", i, value)
 	}
+	values = make([]int, 3)
+	values[0] = 10
+	values[1] = 15
+	values[2] = 18
+	values = append(values, 20, 30, 40, 50)
+	for i, value := range values {
+		fmt.Printf("values[%d]: %d.\n", i, value)
+	}
 
 	var array [16]int
 	values = array[:]
@@ -34,4 +42,9 @@ func main() {
 	for key, value := range count {
 		fmt.Printf("count[%q]: %d.\n", key, value)
 	}
+
+
+	values = make([]int, 0, 6)
+	values = append(values, 10, 2, 4, 55, 82, 3)
+	values = append(values, 2)
 }
