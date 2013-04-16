@@ -86,12 +86,10 @@ func TestIsSafe(t *testing.T) {
 	wg.Wait()
 }
 
-
-
 func BenchmarkInsert(b *testing.B) {
 	linked := NewLinkedList()
 	for i := 0; i < b.N; i++ {
-		linked.Insert(i*100)
+		linked.Insert(i * 100)
 	}
 }
 
@@ -99,7 +97,7 @@ func BenchmarkRemove(b *testing.B) {
 	b.StopTimer()
 	linked := NewLinkedList()
 	for i := 0; i < 1e6; i++ {
-		linked.Insert(i*100)
+		linked.Insert(i * 100)
 	}
 	b.StartTimer()
 	for i := 0; i < b.N; i++ {
