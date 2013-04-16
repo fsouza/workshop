@@ -16,7 +16,7 @@ type Person struct {
 }
 
 type Elevator struct {
-	name string
+	name   string
 	people <-chan Person
 }
 
@@ -28,7 +28,7 @@ func (e *Elevator) Start() {
 	go func() {
 		for p := range e.people {
 			fmt.Printf("%q transporting %s.\n", e.name, p.Name)
-			time.Sleep(time.Duration((rand.Int() % 5 + 1) * 1e9))
+			time.Sleep(time.Duration((rand.Int()%5 + 1) * 1e9))
 		}
 	}()
 }
