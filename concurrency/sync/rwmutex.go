@@ -8,7 +8,7 @@ import (
 	"sync"
 )
 
-var hits struct {
+var hits = struct {
 	m map[string]int
 	sync.RWMutex
 }{m: make(map[string]int)}
