@@ -1,0 +1,9 @@
+PROC foo (CHAN INT out!)
+    out ! 42
+:
+
+PROC bar (CHAN INT in?)
+    INT v:
+    SEQ
+        in ? v
+:
