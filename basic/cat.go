@@ -2,7 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Limited clone of cat. Can only read files, not standard input, and only one file.
+// Limited clone of cat. Can only read files, not standard input, and only one
+// file.
 package main
 
 import (
