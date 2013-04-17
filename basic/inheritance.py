@@ -8,7 +8,7 @@ class Widget(object):
         return self.x, self.y
 
 
-class Label(object):
+class Label(Widget):
 
     def __init__(self, text, x, y):
         super(Label, self).__init__(x, y)
