@@ -5,6 +5,7 @@
 package main
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -33,8 +34,7 @@ func (p People) Len() int {
 	return len(p)
 }
 
-// TODO: embedding
-
 func main() {
-
+	p := Person{Name: "Francisco", Birth: time.Now().Add(-24 * time.Hour)}
+	fmt.Println(p.IsBirthday())
 }
